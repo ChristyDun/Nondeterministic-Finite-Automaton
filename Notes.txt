@@ -1,0 +1,6 @@
+Introduction To The Theory Of Computation - Sipser
+
+boolean vector states 0:1 vector DFA Subset of NFA
+Transition what you can read charaters / epsilon
+describe 1 state to another state as matrix
+Matrix multiplications 
