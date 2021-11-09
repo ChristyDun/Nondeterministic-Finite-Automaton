@@ -1,6 +1,29 @@
+
+Compilers Principles, Techniques, and Tools - AHO LAM SETHI ULLMAN
 Introduction To The Theory Of Computation - Sipser
+
 
 boolean vector states 0:1 vector DFA Subset of NFA
 Transition what you can read charaters / epsilon
 describe 1 state to another state as matrix
-Matrix multiplications 
+Matrix multiplications
+
+NFA Definition
+Is a 5-Tuple (Q, Σ, δ, q0, F), where
+1. Q is a finite set of states,
+2. Σ is a finite alphabet,
+3. δ : Q × Σε−→P(Q) is the transition function,
+4. q0 ∈ Q is the start state, and
+5. F ⊆ Q is the set of accept states.
+
+
+NFA
+- Start Node / End Node(s) (accept node(s))
+- Posible language input vectors (Regular Expession Vectors)
+
+Graph
+- Key For Path (next language/Reg Ex input)
+- If 2 same choice pick one that leads onward on the graph add other to top of stack
+- End True if end of input string and in final state(node) , empty stack
+- End False if end of input and empty stack and not in final state(node)
+- If Not empty stack and input empty return to state(node) at top of stack and resume from there. 
