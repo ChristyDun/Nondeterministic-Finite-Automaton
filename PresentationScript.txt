@@ -1,0 +1,77 @@
+
+Hello I am Christy Dunlop and this is a presentation of the final year project that I am doing titled Visual Nondeterministic-Finite-Automaton Builder And Simulator.
+
+
+
+-NFA are a mathmatical model of computation,
+
+	It is a system made up of states that change due to supplied inputs 
+
+	The transitions between these states are controled by keys allowing only certain 		inputs to transition between certain states 
+
+	There is always a inital and final state allowing for It to be used as 
+	 recognizer, An input string is taken and the NFA either accept or dinies the input.
+
+	This computation model is very basic not all computational methods can be done with 		finite state machines, this however means that it is simple enough to be easily 		understood and usefull as a learning tool.
+
+	What makes it nondeterministic is the fact that the input can correspond to more than 		one vaild choice for the next state of the automata machine.
+
+
+-Why Choosen
+
+	Background in maths, grew up being good at maths devolped into an intrest in the 	subject. This devolped into a interest in 
+
+	Problem solving ,puzzles rubix cube, sudoku gainfind great statisfication in 		solving these problems and getting a clear solution.
+
+	Interest into computing and how compuation works.
+
+	Doing this project will not only allow me to deveolp my understanding of compuational 		models further but also help others deveolp thier understanding.
+
+
+-Project Brief/ Overview
+
+	The inital brief set out of the project was to produce and educational program for 		simulating and visualising Nondeterministic-Finite-Automaton.
+
+	This Devolped into the goals to make a functional program.
+	The simulator and builder would have to;
+	-Define the set of symbols which the NFA accepts using a simple text interface
+	-Create state nodes
+	-Define transitions between nodes
+	-Define when a state node accepts the input
+
+	With these functional requirements set meeting them would produce a program that would 	allow for the building of a Nondeterministic-Finite-Automaton and basic simulation for 	accepting inputs.
+
+-What was achieved 
+	
+	Over past months been working on producing a function program for Nondeterministic-	Finite-Automaton building and simulation. What I managed to achieve and impliment in 	that time was.
+
+	Produced a graph data structure with nodes and edges to represent a Automaton.
+
+	Nodes can return wether they are the inital, final node or niether.
+
+	Edges have keys on them so the graph structure is made as a weighted graph.
+
+	This allows for traversal of the automata with a stack of input characters and a 	method for determining if this stack is accepted by the Nondeterministic-Finite-	Automaton based on wether it ends in the final node from starting from the inital node 	with an empty input stack.
+
+	Multiple automata examples were made allowing for input strings to be tested with 		various different automata to see the diffeences with them.
+
+	A output of the path taken by the traversal for a given input is returned to the users 	of the simulator as well. Allowing for the user to clearly see how a given input in 	tested and the workings of the Nondeterministic-Finite-Automaton.
+
+	The program also gives a visual representation of the various automata allowing for 	the users to more easily follow along with the simulation of the automata for the 	inputs given by them.
+
+-Demonstration of software
+
+	Automaton 1 any number of 'a's ending in either 1 or 2 'b's
+
+	example successful input aabb
+	example unsuccessful input bba
+
+	Automaton 2 any number of 'a's or 'b's ending in an 'a'
+
+	example successful input abaa
+	example unsuccessful input bba
+
+	Automaton 3 any number of 'a's followed by one 'b' followed by any number of 'a's
+
+	example successful input aaab
+	example unsuccessful input bba
