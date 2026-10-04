@@ -29,6 +29,7 @@ public class NDFAGraph {
     }
 
     public void setInitialNode(Node initialNode) {
+        this.initialNode = initialNode;
         this.currentNode = initialNode;
     }
 
@@ -48,14 +49,14 @@ public class NDFAGraph {
         return pathTaken;
     }
 
-    List<List<Node>> node_list = new ArrayList<>();
+    List<List<Node>> node_list = new ArrayList<List<Node>>();
     List<Edge> edge_list = new ArrayList<>();
     Stack<UnusedPaths> unusedPaths = new Stack<>();
 
     public NDFAGraph(List<Edge> edges) {
         edge_list = edges;
         for (int i = 0; i < edges.size(); i++) {
-            node_list.add(i, new ArrayList<>());
+            node_list.add(i, new ArrayList<Node>());
         }
         edges.forEach((e) -> {
             node_list.get(e.src.getValue()).add(new Node(e.dest.getValue()));
@@ -65,7 +66,8 @@ public class NDFAGraph {
     public void printNodes() {
         node_list.forEach((node_list1) -> {
             for (int i = 0; i < node_list1.size(); i++) {
-                System.out.println(node_list1.get(i).getValue());
+                Node n = node_list1.get(i);
+                System.out.println(n.getValue());
             }
         });
     }
@@ -87,7 +89,7 @@ public class NDFAGraph {
     }
 
     //method for chnage node (follow an Edge)
-    public Node changeNode(String Key) {
+    /*public Node changeNode(String Key) {
         multiplePaths = false;
         if (currentNode != null) {
             edge_list.forEach((e) -> {
@@ -118,7 +120,31 @@ public class NDFAGraph {
             });
         }
         return destinationNode;
-    }
+    }*/
+	
+	public boolean processInput(Node node, String input, List<Node> currentPath){
+		currentPath.add(node);
+		if (input.isEmpty()){
+			if(node.getValue() == finalNode.getValue()){
+				this.pathTaken = new ArrayList<>(currentPath);
+				return true;
+			}
+			return false;
+		}
+		
+		String symbol = input.substring(0,1);
+		String remainingInput = input.substring(1);
+		
+		for (Edge edge : edge_list) {
+			if(edge.getSrc().getValue() == node.getValue() && edge.getKey().equals(symbol)){
+				if(processInput(edge.getDest(), remainingInput, new ArrayList<>(currentPath))){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 
     public void followEdge(Edge takenEdge) {
         currentNode = takenEdge.getDest();
@@ -154,7 +180,7 @@ public class NDFAGraph {
     }
 
     //method for accepting input (Boolean)
-    public boolean traverseAutomaton(String inputString) {
+    /*public boolean traverseAutomaton(String inputString) {
         currentInputString = inputString;
         inputStringFailed = false;
         String nextChar;
@@ -202,7 +228,7 @@ public class NDFAGraph {
 
         //If end of input and in final Node accept input (return True)
         return inFinalNode();
-    }
+    }*/
 
     //Paser with input (CYK algorithm?)
 }

@@ -16,7 +16,7 @@ public class UnusedPaths {
         this.edge = edge;
         this.currentInputString = currentInputString;
         this.currentNode = currentNode;
-        this.pathTaken = pathTaken;
+        this.pathTaken = new ArrayList<>(pathTaken);
     }   
 
     public Node getCurrentNode() {
